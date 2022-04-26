@@ -24,7 +24,6 @@ exports.upload = (req,res) => {
             var myObj = JSON.parse(data)
             const result = await authSchema.validateAsync(myObj.data);
             const options = { new:true }; 
-                    
          User.insertMany(myObj,options) 
             .then(() => {
               res.status(200).send({
@@ -51,7 +50,7 @@ exports.findAll = (req, res) => {
       res.send(User);
   }).catch(err => {
       res.status(500).send({
-          message: err.message || "Some error occurred while retrieving coupon details."
+          message: err.message 
       });
   });
 };
