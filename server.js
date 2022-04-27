@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express");
 const mongoose  = require("mongoose");
 const router = require('./router/router')
@@ -10,7 +11,7 @@ app.listen(3500,()=>{
 });
 
 app.use('/', router);
-mongoose.connect( "mongodb+srv://authrouters:191005@cluster0.sq2zs.mongodb.net/excel?retryWrites=true&w=majority",
+mongoose.connect(process.env.DB_URI,
 (err) =>{
     if(err) return console.log("error:",err);
     console.log("mongoDB connected...!");
