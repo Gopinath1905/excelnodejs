@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const userSchema = new mongoose.Schema({
     UserID:{
         type:String,
+        unique:true,
         required:true
     },
     Firstname:{
@@ -19,7 +20,7 @@ const userSchema = new mongoose.Schema({
         required:true
     },
    PhNo:{
-        type:String,
+        type:Number,
         required:true
     },
     City:{
